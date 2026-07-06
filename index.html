@@ -227,7 +227,7 @@
         <div class="gal-track">
           <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
             <div style="{{ g.boxStyle }}" style-hover="transform:scale(1.02)">
-              <img src="{{ g.img }}" alt="{{ g.label }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+              <img src="{{ g.img }}" alt="{{ g.label }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ g.objPos }};display:block"/>
               <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,0) 40%,rgba(11,11,11,.88))"></div>
               <div style="position:absolute;top:12px;left:12px;font-family:'Orbitron',sans-serif;font-weight:800;font-size:11px;letter-spacing:.3em;color:#C7C7C7;background:rgba(11,11,11,.8);padding:4px 10px">{{ g.num }}</div>
               <div style="position:absolute;left:18px;bottom:16px;right:18px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#fff">{{ g.label }}</div>
@@ -236,7 +236,7 @@
           </sc-for>
           <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
             <div style="{{ g.boxStyle }}" style-hover="transform:scale(1.02)" aria-hidden="true">
-              <img src="{{ g.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+              <img src="{{ g.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ g.objPos }};display:block"/>
               <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,0) 40%,rgba(11,11,11,.88))"></div>
               <div style="position:absolute;top:12px;left:12px;font-family:'Orbitron',sans-serif;font-weight:800;font-size:11px;letter-spacing:.3em;color:#C7C7C7;background:rgba(11,11,11,.8);padding:4px 10px">{{ g.num }}</div>
               <div style="position:absolute;left:18px;bottom:16px;right:18px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#fff">{{ g.label }}</div>
@@ -522,16 +522,17 @@ class Component extends DCLogic {
       ],
       galeria: (() => {
         const box = 'position:relative;flex:0 0 240px;aspect-ratio:3/4;margin-right:14px;border-radius:8px;overflow:hidden;border:1px solid rgba(199,199,199,.08);cursor:pointer;transition:transform .3s ease;background:#161616';
+        // objPos = object-position: mueve el foco del recorte cuando el sujeto no esta en el centro
         return [
-          {num:'01', label:'Diagnóstico computarizado', img:'uploads/galeria_01_diagnostico.jpg', boxStyle: box},
-          {num:'02', label:'Cambio de frenos', img:'uploads/galeria_02_frenos.jpg', boxStyle: box},
-          {num:'03', label:'Cambio de aceite y filtros', img:'uploads/galeria_03_aceite.jpg', boxStyle: box},
-          {num:'04', label:'Reparación de suspensión', img:'uploads/galeria_04_suspension.jpg', boxStyle: box},
-          {num:'05', label:'Reparación de motor', img:'uploads/galeria_05_motor.jpg', boxStyle: box},
-          {num:'06', label:'Alineación y balanceo', img:'uploads/galeria_06_alineacion.jpg', boxStyle: box},
-          {num:'07', label:'Cambio de embrague', img:'uploads/galeria_07_embrague.jpg', boxStyle: box},
-          {num:'08', label:'Taller moderno y equipado', img:'uploads/galeria_08_taller.jpg', boxStyle: box},
-          {num:'09', label:'Revisión electrónica', img:'uploads/galeria_09_revision.jpg', boxStyle: box},
+          {num:'01', label:'Diagnóstico computarizado', img:'uploads/galeria_01_diagnostico.jpg', boxStyle: box, objPos:'50% 50%'},
+          {num:'02', label:'Cambio de frenos', img:'uploads/galeria_02_frenos.jpg', boxStyle: box, objPos:'50% 50%'},
+          {num:'03', label:'Cambio de aceite y filtros', img:'uploads/galeria_03_aceite.jpg', boxStyle: box, objPos:'50% 50%'},
+          {num:'04', label:'Reparación de suspensión', img:'uploads/galeria_04_suspension.jpg', boxStyle: box, objPos:'50% 50%'},
+          {num:'05', label:'Reparación de motor', img:'uploads/galeria_05_motor.jpg', boxStyle: box, objPos:'35% 50%'},
+          {num:'06', label:'Alineación y balanceo', img:'uploads/galeria_06_alineacion.jpg', boxStyle: box, objPos:'50% 50%'},
+          {num:'07', label:'Cambio de embrague', img:'uploads/galeria_07_embrague.jpg', boxStyle: box, objPos:'50% 50%'},
+          {num:'08', label:'Taller moderno y equipado', img:'uploads/galeria_08_taller.jpg', boxStyle: box, objPos:'50% 50%'},
+          {num:'09', label:'Revisión electrónica', img:'uploads/galeria_09_revision.jpg', boxStyle: box, objPos:'35% 50%'},
         ];
       })(),
       // Numero de WhatsApp del taller (formato internacional sin +, sin espacios). CAMBIAR POR EL REAL.
