@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Orbitron:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#0B0B0B;color:#fff;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#D72638;color:#fff}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes scanline{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes pulseGlow{0%,100%{opacity:.4}50%{opacity:.9}}
+  @keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  html{scroll-behavior:smooth}
+</style>
+</helmet>
+
+<div style="background:#0B0B0B;color:#fff;overflow:hidden">
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(14px);background:linear-gradient(180deg,rgba(11,11,11,.85),rgba(11,11,11,.6));border-bottom:1px solid rgba(199,199,199,.08)">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff">
+      <img src="uploads/prestige_motors_logo_opcion_3.png" alt="Prestige Motors" style="width:44px;height:44px;border-radius:50%;object-fit:cover"/>
+      <div style="display:flex;flex-direction:column;line-height:1">
+        <span style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:15px;letter-spacing:.18em">PRESTIGE</span>
+        <span style="font-family:'Rajdhani',sans-serif;font-weight:500;font-size:10px;letter-spacing:.4em;color:#C7C7C7;margin-top:3px">MOTORS</span>
+      </div>
+    </a>
+    <div style="display:flex;gap:36px;align-items:center;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase">
+      <a href="#sobre" style="color:#C7C7C7;text-decoration:none;transition:color .2s" style-hover="color:#fff">Taller</a>
+      <a href="#servicios" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Servicios</a>
+      <a href="#proceso" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Proceso</a>
+      <a href="#galeria" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Galería</a>
+      <a href="#contacto" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Contacto</a>
+    </div>
+    <a href="#contacto" style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;background:#D72638;color:#fff;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;border-radius:2px;box-shadow:0 10px 30px -10px rgba(215,38,56,.55);transition:transform .25s,background .25s" style-hover="background:#b31d2d;transform:scale(1.03)">
+      Agendar
+      <span style="width:6px;height:6px;background:#fff;border-radius:50%;box-shadow:0 0 8px #fff;animation:pulseGlow 2s infinite"></span>
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="top" style="position:relative;min-height:100vh;padding:180px 48px 120px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 20% 40%,rgba(215,38,56,.18),transparent 55%),radial-gradient(ellipse at 80% 70%,rgba(199,199,199,.06),transparent 55%),#0B0B0B">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(199,199,199,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(199,199,199,.04) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);pointer-events:none"></div>
+    <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#D72638,transparent);opacity:.5;pointer-events:none"></div>
+
+    <div style="position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;max-width:1440px;margin:0 auto;width:100%">
+      <div style="animation:fadeUp .9s ease-out both">
+        <div style="display:inline-flex;align-items:center;gap:12px;padding:8px 16px;border:1px solid rgba(199,199,199,.18);border-radius:100px;background:rgba(27,27,27,.6);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#C7C7C7;margin-bottom:32px">
+          <span style="width:6px;height:6px;background:#D72638;border-radius:50%;box-shadow:0 0 10px #D72638"></span>
+          Taller Automotriz Premium
+        </div>
+        <h1 style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(56px,7vw,112px);line-height:.95;letter-spacing:-.01em;margin:0 0 24px">
+          PRESTIGE<br/>
+          <span style="background:linear-gradient(180deg,#fff 0%,#C7C7C7 50%,#5A5A5A 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">MOTORS</span>
+        </h1>
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px">
+          <span style="width:48px;height:2px;background:#D72638"></span>
+          <p style="margin:0;font-family:'Rajdhani',sans-serif;font-weight:500;font-size:20px;letter-spacing:.15em;text-transform:uppercase;color:#C7C7C7">La excelencia que tu vehículo merece</p>
+        </div>
+        <p style="margin:0 0 44px;font-size:17px;line-height:1.7;color:#9a9a9a;max-width:520px">Ingeniería, precisión y confianza. Servicio automotriz de alto nivel con atención personalizada, diagnóstico computarizado y repuestos certificados.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="#contacto" style="display:inline-flex;align-items:center;gap:14px;padding:18px 32px;background:#D72638;color:#fff;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.24em;text-transform:uppercase;border-radius:2px;box-shadow:0 20px 50px -15px rgba(215,38,56,.6);transition:all .25s" style-hover="background:#b31d2d;transform:scale(1.03);box-shadow:0 25px 60px -10px rgba(215,38,56,.75)">
+            Agendar servicio
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#servicios" style="display:inline-flex;align-items:center;gap:14px;padding:18px 32px;background:transparent;color:#fff;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.24em;text-transform:uppercase;border:1px solid #C7C7C7;border-radius:2px;transition:all .25s" style-hover="background:#1B1B1B;border-color:#fff">
+            Ver servicios
+          </a>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:72px;padding-top:32px;border-top:1px solid rgba(199,199,199,.12);max-width:520px">
+          <div>
+            <div style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:32px;color:#fff">12+</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:500;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#5A5A5A;margin-top:4px">Años de experiencia</div>
+          </div>
+          <div>
+            <div style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:32px;color:#fff">4K+</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:500;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#5A5A5A;margin-top:4px">Vehículos atendidos</div>
+          </div>
+          <div>
+            <div style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:32px;color:#D72638">100%</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:500;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#5A5A5A;margin-top:4px">Garantía certificada</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;display:flex;align-items:center;justify-content:center;animation:fadeIn 1.4s ease-out both;min-height:480px">
+        <div style="position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(215,38,56,.22) 0%,transparent 60%);filter:blur(20px)"></div>
+        <div style="position:absolute;width:440px;height:440px;border:1px solid rgba(199,199,199,.14);border-radius:50%;animation:floatSlow 6s ease-in-out infinite"></div>
+        <div style="position:absolute;width:340px;height:340px;border:1px dashed rgba(199,199,199,.18);border-radius:50%"></div>
+        <img src="uploads/prestige_motors_logo_opcion_3.png" alt="Prestige Motors" style="position:relative;width:380px;height:380px;object-fit:contain;filter:drop-shadow(0 40px 60px rgba(0,0,0,.8)) drop-shadow(0 0 40px rgba(215,38,56,.25));animation:floatSlow 6s ease-in-out infinite"/>
+        <div style="position:absolute;top:0;left:0;width:32px;height:32px;border-top:2px solid #D72638;border-left:2px solid #D72638"></div>
+        <div style="position:absolute;top:0;right:0;width:32px;height:32px;border-top:2px solid #C7C7C7;border-right:2px solid #C7C7C7"></div>
+        <div style="position:absolute;bottom:0;left:0;width:32px;height:32px;border-bottom:2px solid #C7C7C7;border-left:2px solid #C7C7C7"></div>
+        <div style="position:absolute;bottom:0;right:0;width:32px;height:32px;border-bottom:2px solid #D72638;border-right:2px solid #D72638"></div>
+      </div>
+    </div>
+
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.4em;color:#5A5A5A;text-transform:uppercase">
+      Scroll
+      <div style="width:1px;height:40px;background:linear-gradient(180deg,#C7C7C7,transparent)"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section style="border-top:1px solid rgba(199,199,199,.08);border-bottom:1px solid rgba(199,199,199,.08);background:#111;overflow:hidden;padding:22px 0">
+    <div style="display:flex;gap:64px;align-items:center;font-family:'Orbitron',sans-serif;font-weight:700;font-size:14px;letter-spacing:.4em;color:#5A5A5A;white-space:nowrap;animation:scanline 30s linear infinite;width:max-content">
+      <span>PRECISIÓN</span><span style="color:#D72638">◆</span>
+      <span>TECNOLOGÍA</span><span style="color:#C7C7C7">◆</span>
+      <span>CONFIANZA</span><span style="color:#D72638">◆</span>
+      <span>RENDIMIENTO</span><span style="color:#C7C7C7">◆</span>
+      <span>EXCELENCIA</span><span style="color:#D72638">◆</span>
+      <span>INNOVACIÓN</span><span style="color:#C7C7C7">◆</span>
+      <span>PRECISIÓN</span><span style="color:#D72638">◆</span>
+      <span>TECNOLOGÍA</span><span style="color:#C7C7C7">◆</span>
+      <span>CONFIANZA</span><span style="color:#D72638">◆</span>
+      <span>RENDIMIENTO</span><span style="color:#C7C7C7">◆</span>
+      <span>EXCELENCIA</span><span style="color:#D72638">◆</span>
+      <span>INNOVACIÓN</span><span style="color:#C7C7C7">◆</span>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" style="padding:140px 48px;background:#0B0B0B;position:relative">
+    <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center">
+      <div style="position:relative;aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#161616 0,#161616 12px,#1B1B1B 12px,#1B1B1B 24px);border-radius:4px;overflow:hidden;border:1px solid rgba(199,199,199,.1)">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#5A5A5A;font-family:ui-monospace,monospace">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 17h14M5 17l2-6h10l2 6M7 11l1.5-4h7L17 11M6 17v3h2v-3M16 17v3h2v-3"/><circle cx="8.5" cy="14" r="1"/><circle cx="15.5" cy="14" r="1"/></svg>
+          <div style="font-size:11px;letter-spacing:.3em">FOTO_TALLER.jpg</div>
+        </div>
+        <div style="position:absolute;top:20px;left:20px;padding:6px 12px;background:rgba(215,38,56,.9);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase">Certificado</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.9));font-family:'Orbitron',sans-serif;font-weight:800;font-size:18px;letter-spacing:.08em">TALLER · ASUNCIÓN</div>
+      </div>
+
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+          <span style="width:32px;height:1px;background:#D72638"></span>
+          <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638">01 — Sobre el taller</span>
+        </div>
+        <h2 style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1.05;letter-spacing:-.01em;margin:0 0 28px;text-transform:uppercase">Donde la mecánica alcanza <span style="color:#D72638">otro nivel</span>.</h2>
+        <p style="margin:0 0 20px;font-size:17px;line-height:1.75;color:#a8a8a8">En <strong style="color:#fff;font-weight:600">Prestige Motors</strong> no vendemos reparaciones — vendemos tranquilidad, seguridad y excelencia. Cada vehículo que ingresa al taller recibe la atención meticulosa de especialistas certificados, con procesos claros y transparentes de principio a fin.</p>
+        <p style="margin:0 0 40px;font-size:17px;line-height:1.75;color:#a8a8a8">Trabajamos con estándares comparables a los de fabricantes premium del sector, combinando tecnología de diagnóstico avanzada, repuestos de calidad y un equipo humano comprometido con el detalle.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div style="padding:22px;background:#1B1B1B;border-left:2px solid #D72638;border-radius:2px">
+            <div style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:22px;color:#fff">Certificados</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:#5A5A5A;margin-top:6px">Técnicos especializados</div>
+          </div>
+          <div style="padding:22px;background:#1B1B1B;border-left:2px solid #C7C7C7;border-radius:2px">
+            <div style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:22px;color:#fff">Transparencia</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:#5A5A5A;margin-top:6px">Presupuesto claro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" style="padding:140px 48px;background:linear-gradient(180deg,#0B0B0B,#131313);border-top:1px solid rgba(199,199,199,.06)">
+    <div style="max-width:1440px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:72px;flex-wrap:wrap">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+            <span style="width:32px;height:1px;background:#D72638"></span>
+            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638">02 — Servicios</span>
+          </div>
+          <h2 style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1.05;margin:0;text-transform:uppercase;max-width:720px">Servicio integral, diagnóstico preciso.</h2>
+        </div>
+        <p style="margin:0;max-width:340px;font-size:15px;line-height:1.7;color:#8a8a8a">Ocho líneas de trabajo, un solo estándar: excelencia en cada intervención sobre tu vehículo.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+        <sc-for list="{{ servicios }}" as="s" hint-placeholder-count="8">
+          <a href="#contacto" style="position:relative;display:flex;flex-direction:column;gap:24px;padding:32px 28px;background:#1B1B1B;border:1px solid rgba(199,199,199,.08);border-radius:4px;text-decoration:none;color:inherit;overflow:hidden;transition:transform .35s ease,border-color .35s,box-shadow .35s;min-height:260px" style-hover="transform:translateY(-6px);border-color:rgba(215,38,56,.4);box-shadow:0 30px 60px -20px rgba(215,38,56,.25)">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;border:1px solid rgba(199,199,199,.12);border-radius:2px;color:#D72638" dangerouslySetInnerHTML="{{ s.iconHtml }}"></div>
+              <span style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:12px;letter-spacing:.3em;color:#3a3a3a">{{ s.num }}</span>
+            </div>
+            <div>
+              <h3 style="margin:0 0 10px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;color:#fff;line-height:1.25">{{ s.titulo }}</h3>
+              <p style="margin:0;font-size:13.5px;line-height:1.6;color:#8a8a8a">{{ s.desc }}</p>
+            </div>
+            <div style="margin-top:auto;display:flex;align-items:center;gap:8px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C7C7C7">
+              Consultar
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIANZA -->
+  <section style="padding:120px 48px;background:#0B0B0B;border-top:1px solid rgba(199,199,199,.06)">
+    <div style="max-width:1440px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:72px">
+        <div style="display:inline-flex;align-items:center;gap:14px;margin-bottom:20px">
+          <span style="width:32px;height:1px;background:#D72638"></span>
+          <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638">03 — Por qué elegirnos</span>
+          <span style="width:32px;height:1px;background:#D72638"></span>
+        </div>
+        <h2 style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(32px,3.5vw,48px);margin:0;text-transform:uppercase;line-height:1.1">Cinco razones. Un solo estándar.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid rgba(199,199,199,.1);border-radius:4px;overflow:hidden">
+        <sc-for list="{{ confianza }}" as="c" hint-placeholder-count="5">
+          <div style="padding:40px 28px;text-align:center;border-right:1px solid rgba(199,199,199,.08);background:#131313;transition:background .3s" style-hover="background:#1B1B1B">
+            <div style="width:52px;height:52px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;color:#D72638" dangerouslySetInnerHTML="{{ c.iconHtml }}"></div>
+            <h4 style="margin:0 0 8px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#fff">{{ c.titulo }}</h4>
+            <p style="margin:0;font-size:12.5px;line-height:1.6;color:#7a7a7a">{{ c.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria" style="padding:140px 48px;background:linear-gradient(180deg,#0B0B0B,#131313);border-top:1px solid rgba(199,199,199,.06)">
+    <div style="max-width:1440px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:60px;flex-wrap:wrap">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+            <span style="width:32px;height:1px;background:#D72638"></span>
+            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638">04 — Galería</span>
+          </div>
+          <h2 style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1.05;margin:0;text-transform:uppercase">Trabajos que hablan por sí solos.</h2>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:16px">
+        <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="5">
+          <div style="position:relative;background:repeating-linear-gradient(45deg,#161616 0,#161616 10px,#1B1B1B 10px,#1B1B1B 20px);border-radius:4px;overflow:hidden;border:1px solid rgba(199,199,199,.08);cursor:pointer;transition:transform .5s ease" style-hover="transform:scale(1.02)" style="{{ g.gridStyle }}">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#5A5A5A;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.28em">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="12" cy="12" r="3"/></svg>
+              {{ g.label }}
+            </div>
+            <div style="position:absolute;top:12px;left:12px;font-family:'Orbitron',sans-serif;font-weight:800;font-size:11px;letter-spacing:.3em;color:#C7C7C7;background:rgba(11,11,11,.8);padding:4px 10px">{{ g.num }}</div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(215,38,56,.15),rgba(11,11,11,.9));opacity:0;transition:opacity .35s" style-hover="opacity:1"></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso" style="padding:140px 48px;background:#0B0B0B;border-top:1px solid rgba(199,199,199,.06)">
+    <div style="max-width:1440px;margin:0 auto">
+      <div style="margin-bottom:80px;max-width:720px">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+          <span style="width:32px;height:1px;background:#D72638"></span>
+          <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638">05 — Proceso de trabajo</span>
+        </div>
+        <h2 style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1.05;margin:0;text-transform:uppercase">Cinco pasos hacia la excelencia.</h2>
+      </div>
+
+      <div style="position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:24px">
+        <div style="position:absolute;top:32px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,#D72638,#C7C7C7,#D72638);opacity:.4"></div>
+        <sc-for list="{{ proceso }}" as="p" hint-placeholder-count="5">
+          <div style="position:relative;text-align:center">
+            <div style="position:relative;width:64px;height:64px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;border:1px solid rgba(199,199,199,.2);border-radius:50%;color:#fff;font-family:'Orbitron',sans-serif;font-weight:800;font-size:18px;z-index:2;transition:border-color .3s" style-hover="border-color:#D72638">
+              <div style="position:absolute;inset:-6px;border:1px dashed rgba(215,38,56,.3);border-radius:50%"></div>
+              {{ p.n }}
+            </div>
+            <h4 style="margin:0 0 10px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#fff">{{ p.titulo }}</h4>
+            <p style="margin:0;font-size:13.5px;line-height:1.6;color:#8a8a8a;max-width:220px;margin-left:auto;margin-right:auto">{{ p.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative;padding:140px 48px;background:radial-gradient(ellipse at center,rgba(215,38,56,.25),transparent 60%),#0B0B0B;border-top:1px solid rgba(199,199,199,.06);border-bottom:1px solid rgba(199,199,199,.06);overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(199,199,199,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(199,199,199,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#D72638,transparent);opacity:.6"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#D72638,transparent);opacity:.6"></div>
+
+    <div style="position:relative;max-width:1000px;margin:0 auto;text-align:center">
+      <div style="display:inline-flex;align-items:center;gap:12px;padding:8px 16px;border:1px solid rgba(215,38,56,.4);border-radius:100px;background:rgba(215,38,56,.08);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#D72638;margin-bottom:32px">
+        <span style="width:6px;height:6px;background:#D72638;border-radius:50%;animation:pulseGlow 2s infinite"></span>
+        Agenda tu servicio hoy
+      </div>
+      <h2 style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(40px,5vw,80px);line-height:1;margin:0 0 24px;text-transform:uppercase">Tu vehículo merece un<br/>servicio de <span style="color:#D72638">prestigio</span>.</h2>
+      <p style="margin:0 0 44px;font-size:18px;line-height:1.6;color:#a8a8a8;max-width:600px;margin-left:auto;margin-right:auto">Reserva tu turno directamente por WhatsApp y recibí atención personalizada de nuestro equipo técnico.</p>
+      <a href="https://wa.me/595000000000" target="_blank" style="display:inline-flex;align-items:center;gap:14px;padding:22px 40px;background:#D72638;color:#fff;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.24em;text-transform:uppercase;border-radius:2px;box-shadow:0 25px 60px -15px rgba(215,38,56,.7);transition:all .25s" style-hover="background:#b31d2d;transform:scale(1.03)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" style="padding:140px 48px;background:#0B0B0B">
+    <div style="max-width:1440px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:60px;flex-wrap:wrap">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+            <span style="width:32px;height:1px;background:#D72638"></span>
+            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638">06 — Contacto</span>
+          </div>
+          <h2 style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1.05;margin:0;text-transform:uppercase">Estamos listos para atenderte.</h2>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:40px">
+        <!-- info + form -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div style="padding:24px;background:#1B1B1B;border:1px solid rgba(199,199,199,.1);border-radius:4px">
+              <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;color:#D72638;border-radius:2px;margin-bottom:16px">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+              </div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#5A5A5A;margin-bottom:4px">WhatsApp</div>
+              <div style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:15px;color:#fff">+595 000 000 000</div>
+            </div>
+            <div style="padding:24px;background:#1B1B1B;border:1px solid rgba(199,199,199,.1);border-radius:4px">
+              <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;color:#D72638;border-radius:2px;margin-bottom:16px">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 00-8-8z"/></svg>
+              </div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#5A5A5A;margin-bottom:4px">Dirección</div>
+              <div style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:15px;color:#fff;line-height:1.4">Av. Principal 1234<br/>Asunción, Paraguay</div>
+            </div>
+            <div style="padding:24px;background:#1B1B1B;border:1px solid rgba(199,199,199,.1);border-radius:4px">
+              <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;color:#D72638;border-radius:2px;margin-bottom:16px">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#5A5A5A;margin-bottom:4px">Horario</div>
+              <div style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:15px;color:#fff;line-height:1.4">Lun–Vie 08:00–18:00<br/>Sáb 08:00–13:00</div>
+            </div>
+            <div style="padding:24px;background:#1B1B1B;border:1px solid rgba(199,199,199,.1);border-radius:4px">
+              <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;color:#D72638;border-radius:2px;margin-bottom:16px">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 5.5a10 10 0 01-2.83.77 4.94 4.94 0 002.16-2.72 9.86 9.86 0 01-3.13 1.2 4.92 4.92 0 00-8.38 4.48A13.94 13.94 0 011.64 4a4.92 4.92 0 001.52 6.57 4.9 4.9 0 01-2.23-.61v.06a4.92 4.92 0 003.95 4.83 4.94 4.94 0 01-2.22.08 4.93 4.93 0 004.6 3.42A9.87 9.87 0 010 20.54 13.93 13.93 0 007.55 22c9.06 0 14.01-7.5 14.01-14 0-.21 0-.42-.02-.63A10 10 0 0022 5.5z"/></svg>
+              </div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#5A5A5A;margin-bottom:4px">Redes</div>
+              <div style="display:flex;gap:12px;margin-top:6px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.15em;color:#C7C7C7">
+                <a href="#" style="color:inherit;text-decoration:none" style-hover="color:#D72638">IG</a>
+                <a href="#" style="color:inherit;text-decoration:none" style-hover="color:#D72638">FB</a>
+                <a href="#" style="color:inherit;text-decoration:none" style-hover="color:#D72638">TT</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- map placeholder -->
+          <div style="height:220px;background:repeating-linear-gradient(45deg,#161616 0,#161616 12px,#1B1B1B 12px,#1B1B1B 24px);border:1px solid rgba(199,199,199,.1);border-radius:4px;position:relative;overflow:hidden">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5A5A5A;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.3em">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s-8-9.5-8-14a8 8 0 0116 0c0 4.5-8 14-8 14z"/><circle cx="12" cy="8" r="2.5"/></svg>
+              <div style="margin-top:8px">MAPA_INTEGRADO</div>
+            </div>
+            <div style="position:absolute;top:16px;left:16px;padding:4px 10px;background:#D72638;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:.24em;text-transform:uppercase">Ubicación</div>
+          </div>
+        </div>
+
+        <!-- form -->
+        <form style="padding:36px;background:#1B1B1B;border:1px solid rgba(199,199,199,.12);border-radius:4px;display:flex;flex-direction:column;gap:20px" onSubmit="{{ handleSubmit }}">
+          <div>
+            <h3 style="margin:0 0 6px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:20px;letter-spacing:.05em;text-transform:uppercase">Solicitá tu turno</h3>
+            <p style="margin:0;font-size:13.5px;color:#8a8a8a">Te respondemos en menos de 24 horas.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C7C7C7">Nombre</span>
+              <input type="text" placeholder="Juan Pérez" style="padding:14px 16px;background:#0B0B0B;border:1px solid rgba(199,199,199,.15);border-radius:2px;color:#fff;font-family:Inter,sans-serif;font-size:14px;outline:none;transition:border-color .2s" style-focus="border-color:#D72638"/>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C7C7C7">Teléfono</span>
+              <input type="tel" placeholder="+595" style="padding:14px 16px;background:#0B0B0B;border:1px solid rgba(199,199,199,.15);border-radius:2px;color:#fff;font-family:Inter,sans-serif;font-size:14px;outline:none;transition:border-color .2s" style-focus="border-color:#D72638"/>
+            </label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C7C7C7">Vehículo</span>
+            <input type="text" placeholder="Marca, modelo, año" style="padding:14px 16px;background:#0B0B0B;border:1px solid rgba(199,199,199,.15);border-radius:2px;color:#fff;font-family:Inter,sans-serif;font-size:14px;outline:none" style-focus="border-color:#D72638"/>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C7C7C7">Servicio</span>
+            <select style="padding:14px 16px;background:#0B0B0B;border:1px solid rgba(199,199,199,.15);border-radius:2px;color:#fff;font-family:Inter,sans-serif;font-size:14px;outline:none">
+              <option>Mecánica general</option>
+              <option>Diagnóstico computarizado</option>
+              <option>Mantenimiento preventivo</option>
+              <option>Frenos y suspensión</option>
+              <option>Cambio de aceite</option>
+              <option>Electricidad automotriz</option>
+              <option>Revisión pre-compra</option>
+              <option>Servicio para flotas</option>
+            </select>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C7C7C7">Mensaje</span>
+            <textarea rows="4" placeholder="Contanos qué necesita tu vehículo" style="padding:14px 16px;background:#0B0B0B;border:1px solid rgba(199,199,199,.15);border-radius:2px;color:#fff;font-family:Inter,sans-serif;font-size:14px;outline:none;resize:vertical" style-focus="border-color:#D72638"></textarea>
+          </label>
+          <button type="submit" style="margin-top:8px;padding:18px;background:#D72638;color:#fff;border:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.28em;text-transform:uppercase;border-radius:2px;cursor:pointer;transition:all .25s" style-hover="background:#b31d2d;transform:scale(1.02)">Enviar solicitud →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:80px 48px 40px;background:#050505;border-top:1px solid rgba(199,199,199,.08)">
+    <div style="max-width:1440px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+            <img src="uploads/prestige_motors_logo_opcion_3.png" alt="Prestige Motors" style="width:56px;height:56px;border-radius:50%;object-fit:cover"/>
+            <div style="display:flex;flex-direction:column;line-height:1">
+              <span style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:18px;letter-spacing:.18em">PRESTIGE</span>
+              <span style="font-family:'Rajdhani',sans-serif;font-weight:500;font-size:11px;letter-spacing:.4em;color:#C7C7C7;margin-top:4px">MOTORS</span>
+            </div>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.7;color:#7a7a7a;max-width:320px">Taller automotriz premium. Ingeniería, precisión y confianza en cada intervención sobre tu vehículo.</p>
+        </div>
+        <div>
+          <h5 style="margin:0 0 20px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#C7C7C7">Navegación</h5>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px">
+            <a href="#sobre" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Taller</a>
+            <a href="#servicios" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Servicios</a>
+            <a href="#proceso" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Proceso</a>
+            <a href="#galeria" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Galería</a>
+            <a href="#contacto" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Contacto</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="margin:0 0 20px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#C7C7C7">Servicios</h5>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:#7a7a7a">
+            <span>Mecánica general</span>
+            <span>Diagnóstico computarizado</span>
+            <span>Mantenimiento preventivo</span>
+            <span>Frenos y suspensión</span>
+            <span>Electricidad automotriz</span>
+          </div>
+        </div>
+        <div>
+          <h5 style="margin:0 0 20px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#C7C7C7">Contacto</h5>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:#7a7a7a">
+            <span>+595 000 000 000</span>
+            <span>hola@prestigemotors.com</span>
+            <span>Av. Principal 1234</span>
+            <span>Asunción, Paraguay</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid rgba(199,199,199,.08);font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#5A5A5A;flex-wrap:wrap;gap:16px">
+        <span>© 2026 Prestige Motors — Todos los derechos reservados</span>
+        <span>Ingeniería · Precisión · Confianza</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const icons = {
+      mecanica: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+      diag: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M6 8l3 3-3 3M12 14h4"/></svg>',
+      mant: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>',
+      frenos: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>',
+      aceite: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 8 6 12a6 6 0 0 1-12 0c0-4 6-12 6-12z"/></svg>',
+      elec: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+      pre: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+      flotas: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 17h14V5H1zM15 8h4l3 3v6h-7"/><circle cx="5.5" cy="17.5" r="2"/><circle cx="18.5" cy="17.5" r="2"/></svg>',
+      shield: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+      cpu: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>',
+      award: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13L17 22l-5-3-5 3 1.5-9"/></svg>',
+      badge: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
+      zap: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+    };
+    return {
+      servicios: [
+        {num:'01', titulo:'Mecánica general', desc:'Reparación integral con diagnóstico previo y repuestos certificados.', iconHtml:icons.mecanica},
+        {num:'02', titulo:'Diagnóstico computarizado', desc:'Escáner OBD-II multimarca y análisis completo de fallas.', iconHtml:icons.diag},
+        {num:'03', titulo:'Mantenimiento preventivo', desc:'Servicios programados según el fabricante para máxima vida útil.', iconHtml:icons.mant},
+        {num:'04', titulo:'Frenos y suspensión', desc:'Sistema de frenado y tren delantero con precisión milimétrica.', iconHtml:icons.frenos},
+        {num:'05', titulo:'Cambio de aceite', desc:'Lubricantes premium y filtros originales para tu motor.', iconHtml:icons.aceite},
+        {num:'06', titulo:'Electricidad automotriz', desc:'Sistema eléctrico, batería, arranque y luminarias.', iconHtml:icons.elec},
+        {num:'07', titulo:'Revisión pre-compra', desc:'Inspección técnica exhaustiva antes de adquirir un vehículo.', iconHtml:icons.pre},
+        {num:'08', titulo:'Servicio para flotas', desc:'Planes corporativos y mantenimiento programado para empresas.', iconHtml:icons.flotas},
+      ],
+      confianza: [
+        {titulo:'Atención profesional', desc:'Trato dedicado en cada visita.', iconHtml:icons.badge},
+        {titulo:'Tecnología', desc:'Diagnóstico de última generación.', iconHtml:icons.cpu},
+        {titulo:'Repuestos de calidad', desc:'Marcas certificadas y originales.', iconHtml:icons.shield},
+        {titulo:'Garantía', desc:'Respaldo escrito en cada servicio.', iconHtml:icons.award},
+        {titulo:'Rapidez', desc:'Presupuesto y entrega sin demoras.', iconHtml:icons.zap},
+      ],
+      proceso: [
+        {n:'01', titulo:'Recepción', desc:'Ingreso del vehículo y análisis inicial con el cliente.'},
+        {n:'02', titulo:'Diagnóstico', desc:'Escaneo computarizado y evaluación técnica detallada.'},
+        {n:'03', titulo:'Presupuesto', desc:'Cotización transparente antes de comenzar el trabajo.'},
+        {n:'04', titulo:'Reparación', desc:'Intervención por especialistas con repuestos certificados.'},
+        {n:'05', titulo:'Entrega', desc:'Prueba final, control de calidad y entrega al cliente.'},
+      ],
+      galeria: [
+        {num:'01', label:'HERO_TALLER', gridStyle:{gridRow:'1 / span 2'}},
+        {num:'02', label:'MOTOR_V8', gridStyle:{}},
+        {num:'03', label:'FRENOS_BRAKE', gridStyle:{}},
+        {num:'04', label:'DIAGNOSTICO', gridStyle:{}},
+        {num:'05', label:'DETALLE_LLANTA', gridStyle:{}},
+      ],
+      handleSubmit: (e) => { e.preventDefault(); alert('¡Solicitud enviada! Te contactaremos pronto.'); },
+    };
+  }
+}
+</script>
+</body>
+</html>
