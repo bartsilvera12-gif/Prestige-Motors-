@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servicios y Trabajos — Prestige Motors</title>
+<meta name="description" content="Todos los trabajos y servicios de Prestige Motors — taller automotriz premium en Asunción.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Orbitron:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#0B0B0B;color:#fff;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .container{max-width:1440px;margin:0 auto;padding:0 48px}
+  nav.top{position:sticky;top:0;z-index:50;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(14px);background:linear-gradient(180deg,rgba(11,11,11,.9),rgba(11,11,11,.65));border-bottom:1px solid rgba(199,199,199,.08)}
+  nav.top .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+  nav.top .brand img{width:48px;height:48px;border-radius:6px;object-fit:contain}
+  nav.top .brand .p{font-family:'Orbitron',sans-serif;font-weight:800;font-size:15px;letter-spacing:.18em}
+  nav.top .brand .m{font-family:'Rajdhani',sans-serif;font-weight:500;font-size:10px;letter-spacing:.4em;color:#C7C7C7;margin-top:3px}
+  nav.top .back{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;background:transparent;color:#fff;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(199,199,199,.25);border-radius:2px;transition:all .25s}
+  nav.top .back:hover{background:#1B1B1B;border-color:#fff}
+  .hero{padding:140px 48px 80px;background:radial-gradient(ellipse at 30% 40%,rgba(215,38,56,.18),transparent 55%),#0B0B0B;text-align:center}
+  .hero .tag{display:inline-flex;align-items:center;gap:12px;padding:8px 16px;border:1px solid rgba(199,199,199,.18);border-radius:100px;background:rgba(27,27,27,.6);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#C7C7C7;margin-bottom:24px}
+  .hero .tag .dot{width:6px;height:6px;background:#D72638;border-radius:50%;box-shadow:0 0 10px #D72638}
+  .hero h1{margin:0 0 20px;font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(40px,6vw,84px);line-height:1;letter-spacing:-.01em;text-transform:uppercase}
+  .hero h1 span{background:linear-gradient(180deg,#fff 0%,#C7C7C7 50%,#5A5A5A 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{margin:0 auto;max-width:640px;font-size:16.5px;line-height:1.7;color:#9a9a9a}
+
+  section.section{padding:100px 48px;border-top:1px solid rgba(199,199,199,.06)}
+  section.section:nth-child(odd){background:#0B0B0B}
+  section.section:nth-child(even){background:linear-gradient(180deg,#0B0B0B,#131313)}
+  .section-head{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .section-head .bar{width:32px;height:1px;background:#D72638}
+  .section-head .lbl{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638}
+  .section h2{margin:0 0 60px;font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(32px,4vw,52px);line-height:1.05;text-transform:uppercase;max-width:900px}
+
+  .grid-fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:960px){.grid-fotos{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid-fotos{grid-template-columns:1fr}}
+  .card-foto{position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;border:1px solid rgba(199,199,199,.08);background:#161616;cursor:pointer;transition:transform .35s ease,border-color .35s,box-shadow .35s}
+  .card-foto:hover{transform:translateY(-4px);border-color:rgba(215,38,56,.35);box-shadow:0 30px 60px -20px rgba(215,38,56,.2)}
+  .card-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .card-foto .num{position:absolute;top:12px;left:12px;font-family:'Orbitron',sans-serif;font-weight:800;font-size:11px;letter-spacing:.3em;color:#C7C7C7;background:rgba(11,11,11,.8);padding:4px 10px;z-index:2}
+  .card-foto .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,0) 45%,rgba(11,11,11,.9))}
+  .card-foto .caption{position:absolute;left:18px;right:18px;bottom:16px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#fff;z-index:2}
+
+  .grid-serv{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .card-serv{position:relative;display:flex;flex-direction:column;gap:20px;padding:32px 28px;background:#1B1B1B;border:1px solid rgba(199,199,199,.08);border-radius:4px;min-height:250px;transition:transform .35s ease,border-color .35s,box-shadow .35s;text-decoration:none;color:inherit}
+  .card-serv:hover{transform:translateY(-6px);border-color:rgba(215,38,56,.4);box-shadow:0 30px 60px -20px rgba(215,38,56,.25)}
+  .card-serv .row{display:flex;justify-content:space-between;align-items:flex-start}
+  .card-serv .icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;border:1px solid rgba(199,199,199,.12);border-radius:2px;color:#D72638}
+  .card-serv .snum{font-family:'Orbitron',sans-serif;font-weight:800;font-size:12px;letter-spacing:.3em;color:#3a3a3a}
+  .card-serv h3{margin:0 0 10px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:15px;letter-spacing:.05em;text-transform:uppercase;line-height:1.3}
+  .card-serv p{margin:0;font-size:13.5px;line-height:1.6;color:#8a8a8a}
+  .card-serv .cta{margin-top:auto;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#D72638;display:flex;align-items:center;gap:8px}
+
+  .cta-final{padding:100px 48px;background:linear-gradient(180deg,#131313,#0B0B0B);text-align:center;border-top:1px solid rgba(199,199,199,.06)}
+  .cta-final h2{margin:0 0 20px;font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);text-transform:uppercase}
+  .cta-final p{margin:0 auto 32px;max-width:520px;color:#9a9a9a;font-size:15px;line-height:1.7}
+  .btn-wa{display:inline-flex;align-items:center;gap:14px;padding:20px 40px;background:#25D366;color:#fff;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.24em;text-transform:uppercase;border-radius:2px;box-shadow:0 25px 60px -15px rgba(37,211,102,.5);transition:all .25s}
+  .btn-wa:hover{background:#1EBE57;transform:scale(1.03)}
+
+  footer{padding:60px 48px 40px;background:#080808;border-top:1px solid rgba(199,199,199,.06);color:#7a7a7a;font-size:13px;text-align:center}
+  footer .brand-mini{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  footer .brand-mini img{width:44px;height:44px;border-radius:6px;object-fit:contain}
+  footer .brand-mini span{font-family:'Orbitron',sans-serif;font-weight:800;font-size:13px;letter-spacing:.2em;color:#fff}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="index.html" class="brand">
+    <img src="uploads/prestige_motors_logo_opcion_2.png" alt="Prestige Motors">
+    <div style="display:flex;flex-direction:column;line-height:1">
+      <span class="p">PRESTIGE</span>
+      <span class="m">MOTORS</span>
+    </div>
+  </a>
+  <a href="index.html" class="back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Volver al inicio
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="tag"><span class="dot"></span>Nuestro trabajo</div>
+  <h1>Servicios <span>&amp; trabajos</span></h1>
+  <p>Todos los trabajos que realizamos en el taller y el detalle de cada servicio. Ingeniería, precisión y confianza en cada intervención.</p>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="bar"></span><span class="lbl">01 — Galería completa</span></div>
+    <h2>Trabajos que hablan por sí solos.</h2>
+    <div class="grid-fotos">
+      <div class="card-foto"><span class="num">01</span><img src="uploads/galeria_01_diagnostico.jpg" alt="Diagnóstico computarizado"><div class="overlay"></div><div class="caption">Diagnóstico computarizado</div></div>
+      <div class="card-foto"><span class="num">02</span><img src="uploads/galeria_02_frenos.jpg" alt="Cambio de frenos"><div class="overlay"></div><div class="caption">Cambio de frenos</div></div>
+      <div class="card-foto"><span class="num">03</span><img src="uploads/galeria_03_aceite.jpg" alt="Cambio de aceite y filtros"><div class="overlay"></div><div class="caption">Cambio de aceite y filtros</div></div>
+      <div class="card-foto"><span class="num">04</span><img src="uploads/galeria_04_suspension.jpg" alt="Reparación de suspensión"><div class="overlay"></div><div class="caption">Reparación de suspensión</div></div>
+      <div class="card-foto"><span class="num">05</span><img src="uploads/galeria_05_motor.jpg" alt="Reparación de motor"><div class="overlay"></div><div class="caption">Reparación de motor</div></div>
+      <div class="card-foto"><span class="num">06</span><img src="uploads/galeria_06_alineacion.jpg" alt="Alineación y balanceo"><div class="overlay"></div><div class="caption">Alineación y balanceo</div></div>
+      <div class="card-foto"><span class="num">07</span><img src="uploads/galeria_07_embrague.jpg" alt="Cambio de embrague"><div class="overlay"></div><div class="caption">Cambio de embrague</div></div>
+      <div class="card-foto"><span class="num">08</span><img src="uploads/galeria_08_taller.jpg" alt="Taller moderno y equipado"><div class="overlay"></div><div class="caption">Taller moderno y equipado</div></div>
+      <div class="card-foto"><span class="num">09</span><img src="uploads/galeria_09_revision.jpg" alt="Revisión electrónica"><div class="overlay"></div><div class="caption">Revisión electrónica</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="bar"></span><span class="lbl">02 — Servicios</span></div>
+    <h2>Servicio integral, diagnóstico preciso.</h2>
+    <div class="grid-serv">
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span class="snum">01</span></div>
+        <div><h3>Mecánica general</h3><p>Reparación integral con diagnóstico previo y repuestos certificados.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M6 8l3 3-3 3M12 14h4"/></svg></div><span class="snum">02</span></div>
+        <div><h3>Diagnóstico computarizado</h3><p>Escáner OBD-II multimarca y análisis completo de fallas.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div><span class="snum">03</span></div>
+        <div><h3>Mantenimiento preventivo</h3><p>Servicios programados según el fabricante para máxima vida útil.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span class="snum">04</span></div>
+        <div><h3>Frenos y suspensión</h3><p>Sistema de frenado y tren delantero con precisión milimétrica.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 8 6 12a6 6 0 0 1-12 0c0-4 6-12 6-12z"/></svg></div><span class="snum">05</span></div>
+        <div><h3>Cambio de aceite</h3><p>Lubricantes premium y filtros originales para tu motor.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="snum">06</span></div>
+        <div><h3>Electricidad automotriz</h3><p>Sistema eléctrico, batería, arranque y luminarias.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><span class="snum">07</span></div>
+        <div><h3>Revisión pre-compra</h3><p>Inspección técnica exhaustiva antes de adquirir un vehículo.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+      <a href="index.html#contacto" class="card-serv">
+        <div class="row"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 17h14V5H1zM15 8h4l3 3v6h-7"/><circle cx="5.5" cy="17.5" r="2"/><circle cx="18.5" cy="17.5" r="2"/></svg></div><span class="snum">08</span></div>
+        <div><h3>Servicio para flotas</h3><p>Planes corporativos y mantenimiento programado para empresas.</p></div>
+        <div class="cta">Consultar →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <h2>¿Listo para agendar?</h2>
+    <p>Contactanos por WhatsApp para reservar tu turno o consultar por cualquier servicio.</p>
+    <a href="https://wa.me/595971123456?text=Hola%20Prestige%20Motors%2C%20quiero%20agendar%20un%20turno." target="_blank" rel="noopener" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.98L0 24l6.18-1.62A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22a9.94 9.94 0 0 1-5.07-1.39l-.36-.21-3.67.96.98-3.58-.23-.37A9.95 9.95 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.5-7.5c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.11 3.22 5.11 4.51.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+      Agendar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="brand-mini">
+    <img src="uploads/prestige_motors_logo_opcion_2.png" alt="Prestige Motors">
+    <span>PRESTIGE MOTORS</span>
+  </div>
+  <div>&copy; 2026 Prestige Motors — Ingeniería · Precisión · Confianza</div>
+</footer>
+
+</body>
+</html>
