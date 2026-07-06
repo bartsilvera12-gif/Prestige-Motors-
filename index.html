@@ -60,6 +60,11 @@
     #top div[style*="min-height:480px"]{min-height:280px!important}
     #top img{max-width:100%;height:auto!important;width:auto!important}
   }
+  @media (max-width:960px){
+    /* Headings mas chicos a partir de tablet */
+    h1{font-size:clamp(44px,8vw,80px)!important}
+    h2{font-size:clamp(28px,5vw,44px)!important}
+  }
   @media (max-width:560px){
     /* Muy chico: todos los grids multi-columna a 1 columna */
     [style*="grid-template-columns:repeat(5,1fr)"],
@@ -70,14 +75,33 @@
     /* Padding aun mas apretado */
     [style*="padding:140px 48px"],
     [style*="padding:120px 48px"]{padding:50px 16px!important}
-    [style*="padding:180px 48px 120px"]{padding:100px 16px 40px!important}
+    [style*="padding:180px 48px 120px"]{padding:90px 16px 40px!important}
     /* Textos gigantes contenidos */
-    h1{font-size:clamp(38px,11vw,64px)!important}
-    h2{font-size:clamp(26px,8vw,42px)!important}
+    h1{font-size:clamp(36px,12vw,64px)!important;line-height:1!important;word-wrap:break-word;overflow-wrap:anywhere}
+    h2{font-size:clamp(22px,7vw,34px)!important;line-height:1.15!important;word-wrap:break-word;overflow-wrap:anywhere}
+    h3{font-size:clamp(15px,4.5vw,18px)!important}
+    /* Cards con menos padding interno */
+    [style*="padding:32px 28px"]{padding:24px 20px!important}
+    [style*="padding:36px"]{padding:22px!important}
+    [style*="padding:40px 28px"]{padding:28px 20px!important}
+    /* Nav: logo mas chico + Agendar boton compacto */
+    nav img{width:40px!important;height:40px!important}
+    nav a[style*="background:#D72638"][style*="padding:12px 22px"]{padding:9px 14px!important;font-size:11px!important;letter-spacing:.15em!important}
     /* Botones grandes: full width */
     a[style*="padding:18px 32px"],
     a[style*="padding:22px 40px"],
     button[style*="padding:18px"]{width:100%;justify-content:center!important}
+    /* Hero: reducir min-height del contenedor de imagen */
+    #top div[style*="min-height:480px"]{min-height:220px!important}
+    /* Galeria: tarjetas del carrusel mas chicas */
+    .gal-track > *{flex:0 0 200px!important}
+    /* Confianza: quitar bordes verticales entre cards */
+    [style*="border-right:1px solid rgba(199,199,199,.08)"]{border-right:none!important;border-bottom:1px solid rgba(199,199,199,.08)!important}
+    /* Servicio card: min-height reducido */
+    [style*="min-height:260px"]{min-height:auto!important}
+    /* Fixes generales de overflow */
+    body{overflow-x:hidden}
+    img{max-width:100%;height:auto}
   }
 </style>
 </helmet>
