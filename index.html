@@ -28,6 +28,57 @@
   .gal-viewport::after{right:0;background:linear-gradient(to left,#131313,transparent)}
   .gal-track{display:flex;width:max-content;animation:gscroll 60s linear infinite}
   .gal-viewport:hover .gal-track{animation-play-state:paused}
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:960px){
+    /* Grids de 2 columnas -> 1 columna */
+    [style*="grid-template-columns:1.15fr .85fr"],
+    [style*="grid-template-columns:1fr 1.05fr"],
+    [style*="grid-template-columns:1fr 1.15fr"]{
+      grid-template-columns:1fr!important;gap:40px!important
+    }
+    /* Grids de 5 y 4 columnas -> 2 columnas */
+    [style*="grid-template-columns:repeat(5,1fr)"],
+    [style*="grid-template-columns:repeat(4,1fr)"]{
+      grid-template-columns:repeat(2,1fr)!important
+    }
+    /* Footer 4 columnas -> 1 */
+    [style*="grid-template-columns:1.3fr 1fr 1fr 1fr"]{
+      grid-template-columns:1fr!important;gap:32px!important
+    }
+    /* Contacto: pares 1fr 1fr apilados */
+    #contacto [style*="grid-template-columns:1fr 1fr"]{
+      grid-template-columns:1fr!important
+    }
+    /* Paddings verticales/laterales reducidos */
+    [style*="padding:140px 48px"]{padding:70px 20px!important}
+    [style*="padding:120px 48px"]{padding:70px 20px!important}
+    [style*="padding:180px 48px 120px"]{padding:110px 20px 60px!important}
+    /* Nav: ocultar menu del medio, dejar logo + Agendar */
+    nav[style*="position:fixed"]{padding:12px 16px!important}
+    nav[style*="position:fixed"] > div[style*="gap:36px"]{display:none!important}
+    /* Hero image: contenedor menos alto */
+    #top div[style*="min-height:480px"]{min-height:280px!important}
+    #top img{max-width:100%;height:auto!important;width:auto!important}
+  }
+  @media (max-width:560px){
+    /* Muy chico: todos los grids multi-columna a 1 columna */
+    [style*="grid-template-columns:repeat(5,1fr)"],
+    [style*="grid-template-columns:repeat(4,1fr)"],
+    [style*="grid-template-columns:1fr 1fr"]{
+      grid-template-columns:1fr!important
+    }
+    /* Padding aun mas apretado */
+    [style*="padding:140px 48px"],
+    [style*="padding:120px 48px"]{padding:50px 16px!important}
+    [style*="padding:180px 48px 120px"]{padding:100px 16px 40px!important}
+    /* Textos gigantes contenidos */
+    h1{font-size:clamp(38px,11vw,64px)!important}
+    h2{font-size:clamp(26px,8vw,42px)!important}
+    /* Botones grandes: full width */
+    a[style*="padding:18px 32px"],
+    a[style*="padding:22px 40px"],
+    button[style*="padding:18px"]{width:100%;justify-content:center!important}
+  }
 </style>
 </helmet>
 
