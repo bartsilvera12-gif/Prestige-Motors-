@@ -21,6 +21,11 @@
   @keyframes pulseGlow{0%,100%{opacity:.4}50%{opacity:.9}}
   @keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   html{scroll-behavior:smooth}
+  .gal-scroll{scrollbar-width:thin;scrollbar-color:#3a3a3a #131313}
+  .gal-scroll::-webkit-scrollbar{height:6px}
+  .gal-scroll::-webkit-scrollbar-track{background:#131313;border-radius:3px}
+  .gal-scroll::-webkit-scrollbar-thumb{background:#3a3a3a;border-radius:3px}
+  .gal-scroll::-webkit-scrollbar-thumb:hover{background:#5a5a5a}
 </style>
 </helmet>
 
@@ -216,7 +221,7 @@
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:260px;gap:16px">
+      <div class="gal-scroll" style="display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;padding:4px 4px 22px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch">
         <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
           <div style="{{ g.boxStyle }}" style-hover="transform:scale(1.02)">
             <img src="{{ g.img }}" alt="{{ g.label }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
@@ -503,7 +508,7 @@ class Component extends DCLogic {
         {n:'05', titulo:'Entrega', desc:'Prueba final, control de calidad y entrega al cliente.'},
       ],
       galeria: (() => {
-        const box = 'position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(199,199,199,.08);cursor:pointer;transition:transform .5s ease;background:#161616';
+        const box = 'position:relative;flex:0 0 240px;aspect-ratio:3/4;border-radius:8px;overflow:hidden;border:1px solid rgba(199,199,199,.08);cursor:pointer;transition:transform .3s ease;background:#161616;scroll-snap-align:start';
         return [
           {num:'01', label:'Diagnóstico computarizado', img:'uploads/galeria_01_diagnostico.jpg', boxStyle: box},
           {num:'02', label:'Cambio de frenos', img:'uploads/galeria_02_frenos.jpg', boxStyle: box},
