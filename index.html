@@ -170,7 +170,7 @@
         <div style="position:absolute;width:520px;height:440px;border-radius:12px;background:radial-gradient(circle,rgba(215,38,56,.22) 0%,transparent 62%);filter:blur(24px)"></div>
         <div style="position:relative;width:100%;max-width:560px;border-radius:6px;overflow:hidden;box-shadow:0 45px 90px -25px rgba(0,0,0,.9);animation:floatSlow 6s ease-in-out infinite">
           <img src="uploads/hero_taller.jpg" alt="Taller Prestige Motors" style="display:block;width:100%;height:auto"/>
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.1),rgba(11,11,11,.35))"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,0),rgba(11,11,11,.15))"></div>
         </div>
       </div>
     </div>
@@ -186,7 +186,7 @@
     <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center">
       <div style="position:relative;aspect-ratio:3/2;background:transparent;border-radius:4px;overflow:hidden">
         <img src="uploads/sobre_mecanica.jpg" alt="Revisión electrónica en Prestige Motors" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.35) 0%,rgba(11,11,11,0) 25%,rgba(11,11,11,0) 60%,rgba(11,11,11,.4) 100%);pointer-events:none"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.12) 0%,rgba(11,11,11,0) 20%,rgba(11,11,11,0) 65%,rgba(11,11,11,.25) 100%);pointer-events:none"></div>
         <div style="position:absolute;top:20px;left:20px;padding:6px 12px;background:rgba(215,38,56,.9);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase">Certificado</div>
         <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.9));font-family:'Orbitron',sans-serif;font-weight:800;font-size:18px;letter-spacing:.08em">TALLER · ASUNCIÓN</div>
       </div>
@@ -285,7 +285,7 @@
           <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
             <div style="{{ g.boxStyle }}" style-hover="transform:scale(1.02)">
               <img src="{{ g.img }}" alt="{{ g.label }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ g.objPos }};display:block"/>
-              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.55) 0%,rgba(11,11,11,.15) 25%,rgba(11,11,11,.15) 55%,rgba(11,11,11,.92) 100%)"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.15) 0%,rgba(11,11,11,0) 15%,rgba(11,11,11,0) 55%,rgba(11,11,11,.85) 100%)"></div>
               <div style="position:absolute;left:18px;bottom:16px;right:18px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#fff">{{ g.label }}</div>
               <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(215,38,56,.18),rgba(11,11,11,.4));opacity:0;transition:opacity .35s" style-hover="opacity:1"></div>
             </div>
@@ -293,7 +293,7 @@
           <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
             <div style="{{ g.boxStyle }}" style-hover="transform:scale(1.02)" aria-hidden="true">
               <img src="{{ g.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ g.objPos }};display:block"/>
-              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.55) 0%,rgba(11,11,11,.15) 25%,rgba(11,11,11,.15) 55%,rgba(11,11,11,.92) 100%)"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.15) 0%,rgba(11,11,11,0) 15%,rgba(11,11,11,0) 55%,rgba(11,11,11,.85) 100%)"></div>
               <div style="position:absolute;left:18px;bottom:16px;right:18px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#fff">{{ g.label }}</div>
               <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(215,38,56,.18),rgba(11,11,11,.4));opacity:0;transition:opacity .35s" style-hover="opacity:1"></div>
             </div>
