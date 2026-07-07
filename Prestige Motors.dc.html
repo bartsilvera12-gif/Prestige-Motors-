@@ -326,7 +326,7 @@
           </sc-for>
         </div>
       </div>
-      <div id="galeria-completa" class="gal-full">
+      <div id="galeria-completa" class="gal-full" style="display:none">
         <div class="gal-full-inner">
           <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
             <div class="gal-full-item">
@@ -337,11 +337,11 @@
           </sc-for>
         </div>
       </div>
-      <div style="display:flex;justify-content:center;margin-top:48px">
-        <a href="#galeria-completa" style="display:inline-flex;align-items:center;gap:14px;padding:16px 36px;background:transparent;color:#fff;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;border:1px solid #C7C7C7;border-radius:2px;transition:all .25s" style-hover="background:#D72638;border-color:#D72638;transform:scale(1.03)">
+      <div id="gal-ver-mas-wrap" style="display:flex;justify-content:center;margin-top:48px">
+        <button type="button" onClick="{{ toggleGaleria }}" style="display:inline-flex;align-items:center;gap:14px;padding:16px 36px;background:transparent;color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;border:1px solid #C7C7C7;border-radius:2px;transition:all .25s;cursor:pointer" style-hover="background:#D72638;border-color:#D72638;transform:scale(1.03)">
           Ver más trabajos
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
+        </button>
       </div>
     </div>
   </section>
@@ -622,6 +622,15 @@ class Component extends DCLogic {
       })(),
       // Numero de WhatsApp del taller (formato internacional sin +, sin espacios). CAMBIAR POR EL REAL.
       hoy: new Date().toISOString().slice(0,10),
+      toggleGaleria: (e) => {
+        const grid = document.getElementById('galeria-completa');
+        const wrap = document.getElementById('gal-ver-mas-wrap');
+        if (grid) {
+          grid.style.display = 'block';
+          if (wrap) wrap.style.display = 'none';
+          setTimeout(() => grid.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+        }
+      },
       handleSubmit: (e) => {
         e.preventDefault();
         const whatsapp = '595971123456';
