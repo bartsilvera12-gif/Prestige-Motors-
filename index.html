@@ -114,9 +114,20 @@
     /* Botones hero: apilados full width */
     body #top a[href="#contacto"],body #top a[href="#servicios"]{padding:16px 24px!important;font-size:12px!important}
   }
-  /* ===== Galeria completa (siempre visible, scroll-target) ===== */
-  #galeria-completa{scroll-margin-top:80px;padding-top:56px}
-  .gal-full-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1440px;margin:0 auto}
+  /* ===== Pagina Galeria completa (overlay tipo pestana aparte) ===== */
+  #galeria-page{position:fixed;inset:0;background:#0B0B0B;z-index:200;overflow-y:auto;display:none}
+  #galeria-page.open{display:block}
+  #galeria-page-nav{position:sticky;top:0;z-index:2;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(14px);background:linear-gradient(180deg,rgba(11,11,11,.9),rgba(11,11,11,.7));border-bottom:1px solid rgba(199,199,199,.08)}
+  #galeria-page-nav .logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+  #galeria-page-nav .logo img{width:44px;height:44px;border-radius:6px;object-fit:contain}
+  #galeria-page-back{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:transparent;color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;border:1px solid #C7C7C7;border-radius:2px;cursor:pointer;transition:all .2s}
+  #galeria-page-back:hover{background:#D72638;border-color:#D72638}
+  #galeria-page-content{max-width:1440px;margin:0 auto;padding:60px 48px 80px}
+  #galeria-page-content h2{font-family:'Orbitron',sans-serif;font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1.05;margin:0 0 12px;text-transform:uppercase}
+  #galeria-page-content .sub{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#D72638;margin-bottom:20px;display:block}
+  .gal-full-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+  @media (max-width:960px){#galeria-page-nav{padding:12px 16px}#galeria-page-content{padding:40px 20px 60px}}
+  @media (max-width:520px){#galeria-page-content{padding:32px 16px 48px}}
   .gal-full-item{position:relative;aspect-ratio:3/4;overflow:hidden}
   .gal-full-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .gal-full-item .lbl{position:absolute;left:16px;right:16px;bottom:14px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;z-index:2}
@@ -326,19 +337,44 @@
           </sc-for>
         </div>
       </div>
-      <div id="galeria-completa" class="gal-full">
-        <div class="gal-full-inner">
-          <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
-            <div class="gal-full-item">
-              <img src="{{ g.img }}" alt="{{ g.label }}" style="object-position:{{ g.objPos }}"/>
-              <div class="veil"></div>
-              <div class="lbl">{{ g.label }}</div>
-            </div>
-          </sc-for>
-        </div>
+      <div style="display:flex;justify-content:center;margin-top:48px">
+        <button type="button" onClick="{{ openGaleria }}" style="display:inline-flex;align-items:center;gap:14px;padding:16px 36px;background:transparent;color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;border:1px solid #C7C7C7;border-radius:2px;cursor:pointer;transition:all .25s" style-hover="background:#D72638;border-color:#D72638;transform:scale(1.03)">
+          Ver más trabajos
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </section>
+
+  <!-- PAGINA GALERIA COMPLETA (pestana aparte, overlay pantalla completa) -->
+  <div id="galeria-page">
+    <div id="galeria-page-nav">
+      <a href="#top" class="logo" onClick="{{ closeGaleria }}">
+        <img src="uploads/prestige_motors_logo_opcion_2.png" alt="Prestige Motors"/>
+        <div style="display:flex;flex-direction:column;line-height:1">
+          <span style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:15px;letter-spacing:.18em">PRESTIGE</span>
+          <span style="font-family:'Rajdhani',sans-serif;font-weight:500;font-size:10px;letter-spacing:.4em;color:#C7C7C7;margin-top:3px">MOTORS</span>
+        </div>
+      </a>
+      <button type="button" id="galeria-page-back" onClick="{{ closeGaleria }}">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Volver
+      </button>
+    </div>
+    <div id="galeria-page-content">
+      <span class="sub">Galería completa</span>
+      <h2>Trabajos que hablan por sí solos.</h2>
+      <div class="gal-full-inner">
+        <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="9">
+          <div class="gal-full-item">
+            <img src="{{ g.img }}" alt="{{ g.label }}" style="object-position:{{ g.objPos }}"/>
+            <div class="veil"></div>
+            <div class="lbl">{{ g.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
 
   <!-- PROCESO -->
   <section id="proceso" style="padding:140px 48px;background:#0B0B0B;border-top:1px solid rgba(199,199,199,.06)">
@@ -616,13 +652,21 @@ class Component extends DCLogic {
       })(),
       // Numero de WhatsApp del taller (formato internacional sin +, sin espacios). CAMBIAR POR EL REAL.
       hoy: new Date().toISOString().slice(0,10),
-      toggleGaleria: (e) => {
-        const grid = document.getElementById('galeria-completa');
-        const wrap = document.getElementById('gal-ver-mas-wrap');
-        if (grid) {
-          grid.style.display = 'block';
-          if (wrap) wrap.style.display = 'none';
-          setTimeout(() => grid.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+      openGaleria: (e) => {
+        e && e.preventDefault && e.preventDefault();
+        const page = document.getElementById('galeria-page');
+        if (page) {
+          page.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          page.scrollTop = 0;
+        }
+      },
+      closeGaleria: (e) => {
+        e && e.preventDefault && e.preventDefault();
+        const page = document.getElementById('galeria-page');
+        if (page) {
+          page.classList.remove('open');
+          document.body.style.overflow = '';
         }
       },
       handleSubmit: (e) => {
