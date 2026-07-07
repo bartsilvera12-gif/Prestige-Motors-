@@ -229,9 +229,8 @@
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
         <sc-for list="{{ servicios }}" as="s" hint-placeholder-count="8">
           <a href="#contacto" style="position:relative;display:flex;flex-direction:column;gap:24px;padding:32px 28px;background:#1B1B1B;border:1px solid rgba(199,199,199,.08);border-radius:4px;text-decoration:none;color:inherit;overflow:hidden;transition:transform .35s ease,border-color .35s,box-shadow .35s;min-height:260px" style-hover="transform:translateY(-6px);border-color:rgba(215,38,56,.4);box-shadow:0 30px 60px -20px rgba(215,38,56,.25)">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div style="display:flex;justify-content:flex-start;align-items:flex-start">
               <div style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:#0B0B0B;border:1px solid rgba(199,199,199,.12);border-radius:2px;color:#D72638" dangerouslySetInnerHTML="{{ s.iconHtml }}"></div>
-              <span style="font-family:'Orbitron',sans-serif;font-weight:800;font-size:12px;letter-spacing:.3em;color:#3a3a3a">{{ s.num }}</span>
             </div>
             <div>
               <h3 style="margin:0 0 10px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;color:#fff;line-height:1.25">{{ s.titulo }}</h3>
