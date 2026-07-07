@@ -30,7 +30,8 @@
   .gal-viewport:hover .gal-track{animation-play-state:paused}
   /* ===== RESPONSIVE (selectores estructurales, no dependen del formato del style inline) ===== */
   body{overflow-x:hidden}
-  img{max-width:100%;height:auto}
+  img{max-width:100%;height:auto;border:0;outline:0;display:block}
+  .gal-track > *{background:transparent!important}
   /* Todo section, footer y nav: tomar padding responsive */
   @media (max-width:960px){
     /* Padding de secciones: usar clamp para escalar suave */
@@ -574,7 +575,7 @@ class Component extends DCLogic {
         {n:'05', titulo:'Entrega', desc:'Prueba final, control de calidad y entrega al cliente.'},
       ],
       galeria: (() => {
-        const box = 'position:relative;flex:0 0 240px;aspect-ratio:3/4;margin-right:14px;border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .3s ease;background:#161616';
+        const box = 'position:relative;flex:0 0 240px;aspect-ratio:3/4;margin-right:14px;border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .3s ease;background:transparent';
         // objPos = object-position: mueve el foco del recorte cuando el sujeto no esta en el centro
         return [
           {num:'01', label:'Diagnóstico computarizado', img:'uploads/galeria_01_diagnostico.jpg', boxStyle: box, objPos:'50% 50%'},
