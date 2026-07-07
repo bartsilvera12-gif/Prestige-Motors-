@@ -159,7 +159,7 @@
       <a href="#sobre" style="color:#C7C7C7;text-decoration:none;transition:color .2s" style-hover="color:#fff">Taller</a>
       <a href="#servicios" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Servicios</a>
       <a href="#proceso" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Proceso</a>
-      <a href="#galeria" onClick="{{ openGaleria }}" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Galería</a>
+      <a href="/galeria" onClick="{{ openGaleria }}" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Galería</a>
       <a href="#contacto" style="color:#C7C7C7;text-decoration:none" style-hover="color:#fff">Contacto</a>
     </div>
     <div style="display:flex;align-items:center;gap:18px">
@@ -557,7 +557,7 @@
             <a href="#sobre" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Taller</a>
             <a href="#servicios" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Servicios</a>
             <a href="#proceso" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Proceso</a>
-            <a href="#galeria" onClick="{{ openGaleria }}" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Galería</a>
+            <a href="/galeria" onClick="{{ openGaleria }}" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Galería</a>
             <a href="#contacto" style="color:#7a7a7a;text-decoration:none" style-hover="color:#fff">Contacto</a>
           </div>
         </div>
@@ -661,7 +661,7 @@ class Component extends DCLogic {
           page.classList.add('open');
           document.body.style.overflow = 'hidden';
           page.scrollTop = 0;
-          if (location.hash !== '#galeria') history.pushState({galeria:true}, '', '#galeria');
+          if (location.pathname !== '/galeria') history.pushState({galeria:true}, '', '/galeria');
         }
       },
       closeGaleria: (e) => {
@@ -670,7 +670,7 @@ class Component extends DCLogic {
         if (page) {
           page.classList.remove('open');
           document.body.style.overflow = '';
-          if (location.hash === '#galeria') history.pushState({galeria:false}, '', location.pathname + location.search);
+          if (location.pathname === '/galeria') history.pushState({galeria:false}, '', '/');
         }
       },
       onGaleriaMount: (() => {
@@ -678,12 +678,11 @@ class Component extends DCLogic {
         const sync = () => {
           const page = document.getElementById('galeria-page');
           if (!page) return;
-          if (location.hash === '#galeria') { page.classList.add('open'); document.body.style.overflow = 'hidden'; }
+          if (location.pathname === '/galeria') { page.classList.add('open'); document.body.style.overflow = 'hidden'; }
           else { page.classList.remove('open'); document.body.style.overflow = ''; }
         };
         if (!window.__galeriaHashBound) {
           window.__galeriaHashBound = true;
-          window.addEventListener('hashchange', sync);
           window.addEventListener('popstate', sync);
           window.addEventListener('load', sync);
           setTimeout(sync, 100);
