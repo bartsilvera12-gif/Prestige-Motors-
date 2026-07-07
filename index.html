@@ -659,6 +659,7 @@ class Component extends DCLogic {
           page.classList.add('open');
           document.body.style.overflow = 'hidden';
           page.scrollTop = 0;
+          if (location.hash !== '#galeria') history.pushState({galeria:true}, '', '#galeria');
         }
       },
       closeGaleria: (e) => {
@@ -667,8 +668,26 @@ class Component extends DCLogic {
         if (page) {
           page.classList.remove('open');
           document.body.style.overflow = '';
+          if (location.hash === '#galeria') history.pushState({galeria:false}, '', location.pathname + location.search);
         }
       },
+      onGaleriaMount: (() => {
+        if (typeof window === 'undefined') return null;
+        const sync = () => {
+          const page = document.getElementById('galeria-page');
+          if (!page) return;
+          if (location.hash === '#galeria') { page.classList.add('open'); document.body.style.overflow = 'hidden'; }
+          else { page.classList.remove('open'); document.body.style.overflow = ''; }
+        };
+        if (!window.__galeriaHashBound) {
+          window.__galeriaHashBound = true;
+          window.addEventListener('hashchange', sync);
+          window.addEventListener('popstate', sync);
+          window.addEventListener('load', sync);
+          setTimeout(sync, 100);
+        }
+        return null;
+      })(),
       handleSubmit: (e) => {
         e.preventDefault();
         const whatsapp = '595971123456';
